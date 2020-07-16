@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events in UA</title>
+    <!-- general css link -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="normalize.css" />
+    <!-- font links -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Spartan:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- bootstrap links -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <!-- select2 links -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <!-- datepicker -->
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <!-- slick-slider links -->
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+  </head>
+  <body>
+    <header>
+      <div class="main-bar">
+        <div class="logo">
+          <a href=""><span>Events<sub>in</sub>UA</span></a>
+        </div>
+        <div class="nav-bar">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Search event"
+            aria-label="Search"
+            id="main-search"
+          />
+          <!-- <button class="btn">Log in</button>
+          <button class="btn">Sign In</button> -->
+          <a><i class="fas fa-search main-loop"></i></a>
+        </div>
+      </div>
+
+      <div class="search-bar">
+        <div class="dropdown">
+          <div class="select" id="citySelect">
+            <span id="citySpan">select city</span>
+            <i class="fa fa-chevron-left"></i>
+          </div>
+          <input type="hidden" />
+          <ul class="dropdown-menu">
+            <li id="lviv">Lviv</li>
+            <li id="kherson">Kherson</li>
+          </ul>
+        </div>
+        <div class="date">
+          <input type="text" id="start-date" placeholder="start date" />
+        </div>
+        <div class="date">
+          <input type="text" id="end-date" placeholder="end date" />
+        </div>
+
+        <div class="dropdown">
+          <div class="select" id="categorySelect">
+            <span id="categorySpan">select category</span>
+            <i class="fa fa-chevron-left"></i>
+          </div>
+          <input type="hidden" name="category" />
+          <ul class="dropdown-menu">
+            <li id="music">Music</li>
+            <li id="tours">Tours</li>
+            <li id="art">Art</li>
+            <li id="festival">Festivals</li>
+          </ul>
+        </div>
+
+        <button class="btnn" id="search">Search</button>
+        <a><i class="fas fa-search totsearch"></i></a>
+      </div>
+    </header>
+    <main>
+      <div class="container" id="slider-container">
+        <h2>Upcoming events...</h2>
+        <div class="row">
+          <div class="col-md-12 heroSlider-fixed">
+            <div class="overlay"></div>
+            <!-- Slider -->
+            <div class="slider responsive"></div>
+            <!-- control arrows -->
+            <div class="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"
+                ><i class="fas fa-chevron-left"></i
+              ></span>
+            </div>
+            <div class="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"
+                ><i class="fas fa-chevron-right"></i
+              ></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="events-container">
+        <ul id="events-list" class="list-unstyled"></ul>
+      </div>
+      <div class="event-container"></div>
+
+      <a id="return-to-top"><i class="fas fa-chevron-up"></i></a>
+    </main>
+    <footer></footer>
+    <!-- datepicker -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- slick-slider script -->
+
+    <script
+      type="text/javascript"
+      src="//code.jquery.com/jquery-migrate-1.2.1.min.js"
+    ></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <!-- select2  -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <!-- fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/e7f050cabf.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- general script -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

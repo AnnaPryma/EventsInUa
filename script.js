@@ -24,17 +24,15 @@ $(document).ready(function () {
   function createSliderItem(event) {
     let dataShow = event.date;
     const $sliderItem = $(`<div class="slider-item">
-    <img src=${event.picture} />
+    <img class="slider-image" src=${event.picture} />
           <h3>${event.title}</h3>
       <div class="event-details">
+      <p>${event.city}</p>
       <p><i class="far fa-calendar-alt"></i> ${formatDate(dataShow)} </p>
-      <div class="btnn-center">
-        <button class="btnn showfull" >View details</button>
-      </div>
-    </div>
+          </div>
   </div>`);
 
-    $sliderItem.find(".showfull").on("click", () => showEvent(event));
+    $sliderItem.find(".slider-image").on("click", () => showEvent(event));
 
     return $sliderItem;
   }
@@ -264,6 +262,7 @@ function onTotSearchClick(e) {
   const endDate = $("#end-date").val();
 
   $("#events-list").empty();
+
   $("#slider-container").hide();
 
   const onSuccess = (resp) => {

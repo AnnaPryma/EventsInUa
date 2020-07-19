@@ -12,7 +12,6 @@ function formatDate(date) {
 
 $(document).ready(function () {
   // slick slider
-
   function createSliderItem(event) {
     let dataShow = event.date;
     const $sliderItem = $(`<div class="slider-item">
@@ -112,37 +111,35 @@ $(function () {
   $("#end-date").datepicker(DATE_PICKER_OPTIONS);
 });
 
-const $modal = $(`<div id="myModal" class="modal">
-<div class="modal-content">
+//function to show modal about date verification
+function showModal() {
+  const $modal = $(`<div id="myModal" >
   <span class="close">&times;</span>
-  <p>Some text in the Modal..</p>
-</div>
+  <div class="modal-content">
+  <p>End date can not be less than start date</p>
+  </div>
 </div>`);
 
-$("#end-date").change(function () {
-  let startDate = $("#start-date").val();
-  let endDate = $("#end-date").val();
-
-  if (Date.parse(startDate) >= Date.parse(endDate)) {
-    alert("End date should be greater than Start date");
-    $("#end-date").val() = "";
-  }
-});
+  $modal.appendTo("body");
+  $modal.show();
+  $modal.find(".close").on("click", (e) => {
+    $modal.detach();
+  });
+  $("#end-date").val() = "";
+}
 
 // arrow up
 $(window).scroll(function () {
   if ($(this).scrollTop() >= 50) {
-    // If page is scrolled more than 50px
-    $("#return-to-top").fadeIn(200); // Fade in the arrow
+    $("#return-to-top").fadeIn(200);
   } else {
-    $("#return-to-top").fadeOut(200); // Else fade out the arrow
+    $("#return-to-top").fadeOut(200);
   }
 });
 $("#return-to-top").click(function () {
-  // When arrow is clicked
   $("body,html").animate(
     {
-      scrollTop: 0, // Scroll to top of body
+      scrollTop: 0,
     },
     500
   );
@@ -166,11 +163,8 @@ function createAboutEvent(event) {
     </div>
 </li>`);
 
-  path = $("#events-container");
+  let path = $("#events-container");
   $aboutEvent.find(".showfull").on("click", () => showEvent(event, path));
-  // $aboutEvent.find("#title").on("click", (e) => {
-  //   showEvent(event, path);
-  // });
 
   path.show();
   return $aboutEvent;
@@ -182,6 +176,7 @@ function showAboutEvent(event) {
   $aboutEvent.appendTo($("#events-list"));
 }
 
+//function to show full information about event
 function showEvent(event, path) {
   const $fullEvent = $(`<div class="event-full">
         <img src="${event.picture}" />
@@ -215,6 +210,7 @@ function showEvent(event, path) {
   });
 }
 
+//function to inform if no response on search
 function onError() {
   const $errorMessage = $(
     `<li class="error"><div ><h3>No matching results</h3></div></li>`
@@ -248,13 +244,6 @@ function onSearchClick(e) {
   });
 }
 
-$(".main-loop").on("click", onSearchClick);
-$("#main-search").on("keyup", function (e) {
-  if (e.keyCode === 13) {
-    onSearchClick();
-  }
-});
-
 // searching with filters
 function onTotSearchClick(e) {
   const DEFAULT_END_DATE = "2022-12-30";
@@ -276,6 +265,9 @@ function onTotSearchClick(e) {
   let endDate = $("#end-date").val();
   if (!endDate) {
     endDate = DEFAULT_END_DATE;
+  }
+  if (Date.parse(startDate) >= Date.parse(endDate)) {
+    showModal();
   }
 
   $("#events-list").empty();
@@ -299,6 +291,13 @@ function onTotSearchClick(e) {
     success: onSuccess,
   });
 }
+
+$(".main-loop").on("click", onSearchClick);
+$("#main-search").on("keyup", function (e) {
+  if (e.keyCode === 13) {
+    onSearchClick();
+  }
+});
 
 $("#search").on("click", onTotSearchClick);
 $(".totsearch").on("click", onTotSearchClick);

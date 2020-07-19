@@ -5,10 +5,6 @@ body {
   font-family: "Lato", sans-serif;
 }
 
-header {
-  margin-bottom: 40px;
-}
-
 *,
 input,
 select,
@@ -16,6 +12,10 @@ textarea,
 option,
 button {
   outline: none !important;
+}
+
+header {
+  margin-bottom: 40px;
 }
 .main-bar {
   background-color: transparent;
@@ -88,9 +88,7 @@ button.btnn {
   padding: 0.375rem 0.75rem;
   border: 1px solid #555b6e;
   border-radius: 0.35rem;
-  /* line-height: 1.4; */
   width: 9rem;
-
   color: black;
   font-size: 1rem;
   font-weight: 500;
@@ -139,6 +137,40 @@ button .btn:active {
   outline: none !important;
   box-shadow: none;
 }
+#myModal {
+  position: fixed;
+  z-index: 1;
+
+  top: 30px;
+  left: 50%;
+  margin-left: -150px;
+  width: 300px;
+  height: 120px;
+  overflow: auto;
+  background-color: yellow;
+  border-radius: 0.5rem;
+  padding: 15px;
+  text-align: center;
+}
+#myModal .modal-content {
+  border: none;
+  background-color: yellow;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
 
 main {
   padding-right: 5%;
@@ -152,127 +184,7 @@ main {
   text-align: center;
   font-size: 2rem;
   font-weight: 400;
-  /* font-style: italic; */
-  /* letter-spacing: 2px; */
   margin-bottom: 20px;
-}
-/* carusel */
-html {
-  box-sizing: border-box;
-}
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
-.responsive img {
-  width: 100%;
-  height: 150px;
-}
-
-h2 {
-  text-align: center;
-  padding-bottom: 1em;
-}
-
-.slick-dots {
-  text-align: center;
-  margin: 0 0 10px 0;
-  padding: 0;
-}
-
-.slick-dots li {
-  display: inline-block;
-  margin-left: 4px;
-  margin-right: 4px;
-}
-
-.slick-dots li .slick-active button {
-  background-color: black;
-}
-
-.slick-dots li button {
-  font: 0/0 a;
-  text-shadow: none;
-  color: transparent;
-  background-color: #999;
-  border: none;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-}
-
-.slick-dots li:hover {
-  background-color: black;
-}
-
-/* Custom Arrow */
-.prev {
-  color: #999;
-  position: absolute;
-  top: 38%;
-  left: -2em;
-  font-size: 1.5em;
-}
-.prev:hover {
-  cursor: pointer;
-  color: black;
-}
-
-.next {
-  color: #999;
-  position: absolute;
-  top: 38%;
-  right: -2em;
-  font-size: 1.5em;
-}
-.next:hover {
-  cursor: pointer;
-  color: black;
-}
-
-@media screen and (max-width: 800px) {
-  .next {
-    display: none !important;
-  }
-  .responsive img {
-    width: 80%;
-    height: 150px;
-    margin: auto;
-  }
-}
-
-div .slider-item {
-  width: 200px;
-  height: 250px;
-  margin: 0 5px;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.slider-item .event-details {
-  color: white;
-  padding-right: 5px;
-  padding-left: 10px;
-  padding-bottom: 5px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-}
-.slider-item .event-details p {
-  margin-bottom: 0;
-  font-weight: 300;
-}
-.btnn-center {
-  display: flex;
-  justify-content: center;
-}
-.slider-item h3 {
-  color: white;
-  font-size: 1.25rem;
-  font-weight: 400;
-  text-align: center;
 }
 /*Styling Selectbox*/
 .dropdown {
@@ -366,52 +278,113 @@ div .slider-item {
 .fa-calendar-alt {
   font-size: 1.3rem;
 }
-@media screen and (max-width: 990px) {
-  .date input {
-    width: 90px;
-  }
-  .dropdown {
-    width: 120px;
-  }
-  .dropdown div.select {
-    width: 135px;
-  }
-  .dropdown i {
-    display: none;
-  }
+/* slider */
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
-@media screen and (max-width: 600px) {
-  .logo span {
-    font-size: large;
-  }
-  .main-bar .form-control {
-    height: 24px;
-  }
-  .search-bar {
-    height: 35px;
-  }
-  .dropdown {
-    line-height: 1;
-  }
-  .date {
-    height: 31px;
-  }
-  .date input {
-    height: 31px;
-  }
-  #search {
-    display: none;
-  }
-  .search-bar .totsearch {
-    display: inline;
-  }
-  .responsive img {
-    width: 250px;
-    height: 150px;
-    margin: auto;
-  }
+.responsive img {
+  width: 100%;
+  height: 150px;
 }
+
+.responsive h2 {
+  text-align: center;
+  padding-bottom: 1em;
+}
+
+.slick-dots {
+  text-align: center;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+.slick-dots li {
+  display: inline-block;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.slick-dots li .slick-active button {
+  background-color: black;
+}
+
+.slick-dots li button {
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+  background-color: #999;
+  border: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.slick-dots li:hover {
+  background-color: black;
+}
+div .slider-item {
+  width: 200px;
+  height: 250px;
+  margin: 0 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.slider-item .event-details {
+  color: white;
+  padding-right: 5px;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+.slider-item .event-details p {
+  margin-bottom: 0;
+  font-weight: 300;
+}
+.btnn-center {
+  display: flex;
+  justify-content: center;
+}
+.slider-item h3 {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+/* Custom Arrow */
+.prev {
+  color: #999;
+  position: absolute;
+  top: 38%;
+  left: -2em;
+  font-size: 1.5em;
+}
+.prev:hover {
+  cursor: pointer;
+  color: black;
+}
+
+.next {
+  color: #999;
+  position: absolute;
+  top: 38%;
+  right: -2em;
+  font-size: 1.5em;
+}
+.next:hover {
+  cursor: pointer;
+  color: black;
+}
+
 /* arrow up */
 #return-to-top {
   position: fixed;
@@ -485,6 +458,7 @@ div .slider-item {
 .event-container .event-full {
   width: 70%;
   margin: auto;
+  margin-bottom: 20px;
   color: white;
 }
 
@@ -536,36 +510,63 @@ div .slider-item {
   text-decoration: none;
   color: yellow;
 }
-
-#myModal {
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 300px; /* Full width */
-  height: 150px; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: yellow;
-}
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-@keyframes animatetop {
-  from {
-    top: -300px;
-    opacity: 0;
+@media screen and (max-width: 800px) {
+  .next {
+    display: none !important;
   }
-  to {
-    top: 0;
-    opacity: 1;
+  .prev {
+    display: none !important;
+  }
+  .responsive img {
+    width: 80%;
+    height: 150px;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .date input {
+    width: 90px;
+  }
+  .dropdown {
+    width: 120px;
+  }
+  .dropdown div.select {
+    width: 135px;
+  }
+  .dropdown i {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .logo span {
+    font-size: large;
+  }
+  .main-bar .form-control {
+    height: 24px;
+  }
+  .search-bar {
+    height: 35px;
+  }
+  .dropdown {
+    line-height: 1;
+  }
+  .date {
+    height: 31px;
+  }
+  .date input {
+    height: 31px;
+  }
+  #search {
+    display: none;
+  }
+  .search-bar .totsearch {
+    display: inline;
+  }
+  .responsive img {
+    width: 250px;
+    height: 150px;
+    margin: auto;
   }
 }

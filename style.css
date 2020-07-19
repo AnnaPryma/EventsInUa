@@ -4,6 +4,7 @@ body {
   background-repeat: no-repeat;
   font-family: "Lato", sans-serif;
 }
+
 header {
   margin-bottom: 40px;
 }
@@ -81,10 +82,6 @@ button {
   justify-content: flex-end;
   align-items: center;
 }
-body {
-  background-color: #eff8f8;
-  margin: 0;
-}
 
 button.btnn {
   display: inline-block;
@@ -146,8 +143,9 @@ button .btn:active {
 main {
   padding-right: 5%;
   padding-left: 5%;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
 }
+
 .container h2 {
   font-family: "Rowdies", cursive;
   color: white;
@@ -167,9 +165,7 @@ html {
 *:after {
   box-sizing: inherit;
 }
-main {
-  margin-bottom: 30px;
-}
+
 .responsive img {
   width: 100%;
   height: 150px;
@@ -419,7 +415,7 @@ div .slider-item {
 /* arrow up */
 #return-to-top {
   position: fixed;
-  bottom: 20px;
+  bottom: 55px;
   right: 20px;
   background: rgb(0, 0, 0);
   background: rgba(0, 0, 0, 0.7);
@@ -476,9 +472,15 @@ div .slider-item {
 #events-container li {
   padding: 15px;
   background-color: rgba(0, 0, 0, 0.5);
-
   width: 80%;
   margin: 15px auto;
+}
+#events-container .error {
+  background-color: transparent;
+}
+#events-container .error div {
+  color: white;
+  text-align: center;
 }
 .event-container .event-full {
   width: 70%;
@@ -495,14 +497,18 @@ div .slider-item {
 .event-full hr {
   border-top: 3px double #9ba2ff;
 }
-footer {
-  margin-top: 20px;
+.footer {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  z-index: 99;
 }
 
-footer .footer-content {
+.footer .footer-content {
   background-color: #555b6e;
 
-  height: 60px;
+  height: 50px;
   padding-right: 5%;
   padding-left: 5%;
   display: flex;
@@ -529,4 +535,37 @@ footer .footer-content {
 .footer-content .contact-us a:hover {
   text-decoration: none;
   color: yellow;
+}
+
+#myModal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 300px; /* Full width */
+  height: 150px; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: yellow;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
 }

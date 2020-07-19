@@ -1,13 +1,5 @@
-axios.defaults.baseURL = "http://localhost:3000";
-axios.defaults.headers.post["Content-Type"] = "application/json";
-
-//getting events from JSON
-function getEvents() {
-  return axios.get("/events");
-}
-
 function formatDate(date) {
-  var d = new Date(date),
+  let d = new Date(date),
     month = "" + (d.getMonth() + 1),
     day = "" + d.getDate(),
     year = d.getFullYear();
@@ -31,8 +23,9 @@ $(document).ready(function () {
       <p><i class="far fa-calendar-alt"></i> ${formatDate(dataShow)} </p>
           </div>
   </div>`);
+    let path = $("#slider-container");
 
-    $sliderItem.find(".slider-image").on("click", () => showEvent(event));
+    $sliderItem.find(".slider-image").on("click", () => showEvent(event, path));
 
     return $sliderItem;
   }
@@ -93,7 +86,7 @@ $(document).ready(function () {
   });
 });
 
-/*Dropdown Menu*/
+//Dropdown Menu
 $(".dropdown").click(function () {
   $(this).attr("tabindex", 1).focus();
   $(this).toggleClass("active");
@@ -107,6 +100,7 @@ $(".dropdown .dropdown-menu li").click(function () {
   $(this).parents(".dropdown").find("span").text($(this).text());
   $(this).parents(".dropdown").find("input").attr("value", $(this).attr("id"));
 });
+
 // datepicker
 const DATE_PICKER_OPTIONS = {
   dateFormat: "yy-mm-dd",
@@ -116,6 +110,23 @@ $(function () {
 });
 $(function () {
   $("#end-date").datepicker(DATE_PICKER_OPTIONS);
+});
+
+const $modal = $(`<div id="myModal" class="modal">
+<div class="modal-content">
+  <span class="close">&times;</span>
+  <p>Some text in the Modal..</p>
+</div>
+</div>`);
+
+$("#end-date").change(function () {
+  let startDate = $("#start-date").val();
+  let endDate = $("#end-date").val();
+
+  if (Date.parse(startDate) >= Date.parse(endDate)) {
+    alert("End date should be greater than Start date");
+    $("#end-date").val() = "";
+  }
 });
 
 // arrow up
@@ -143,7 +154,7 @@ function createAboutEvent(event) {
   <li>
   <div class="event-details">
   <img src="${event.picture}" alt="" />
-      <h3 id='title'>${event.title}</h3>
+      <h3 >${event.title}</h3>
     <p><i class="far fa-calendar-alt"> </i> ${event.date}</p>
     <p><i>Location: </i>${event.city}</p>
     <p>
@@ -155,12 +166,13 @@ function createAboutEvent(event) {
     </div>
 </li>`);
 
+  path = $("#events-container");
+  $aboutEvent.find(".showfull").on("click", () => showEvent(event, path));
   // $aboutEvent.find("#title").on("click", (e) => {
-  //   showEvent(event);
+  //   showEvent(event, path);
   // });
 
-  $aboutEvent.find(".showfull").on("click", () => showEvent(event));
-
+  path.show();
   return $aboutEvent;
 }
 
@@ -170,7 +182,7 @@ function showAboutEvent(event) {
   $aboutEvent.appendTo($("#events-list"));
 }
 
-function showEvent(event) {
+function showEvent(event, path) {
   const $fullEvent = $(`<div class="event-full">
         <img src="${event.picture}" />
         <div class="event-details">
@@ -194,13 +206,20 @@ function showEvent(event) {
 
   $fullEvent.appendTo($(".event-container"));
 
-  $("#events-container").hide();
-  $("#slider-container").hide();
+  path.hide();
+  $(".event-container").show();
 
   $fullEvent.find("#go-back").on("click", (e) => {
-    $("#events-container").show();
+    path.show();
     $fullEvent.detach();
   });
+}
+
+function onError() {
+  const $errorMessage = $(
+    `<li class="error"><div ><h3>No matching results</h3></div></li>`
+  );
+  $errorMessage.appendTo($("#events-list"));
 }
 
 //searching by name
@@ -209,19 +228,17 @@ const $mainSearchInput = $("#main-search");
 function onSearchClick(e) {
   const searchVal = $mainSearchInput.val().toLowerCase().trim();
   $("#events-list").empty();
+  $(".event-container").empty();
   $("#slider-container").hide();
 
   const onSuccess = (resp) => {
-    $.each(resp, (i, event) => {
-      showAboutEvent(event);
-    });
-    // return $("#events-container");
-  };
-  const onError = () => {
-    // $errorMessage = `<div><h3>No matching results</h3></div>`;
-    // $errorMessage.show();
-    // console.log("get no data");
-    alert("no data");
+    if (!$.isArray(resp) || !resp.length) {
+      onError();
+    } else {
+      $.each(resp, (i, event) => {
+        showAboutEvent(event);
+      });
+    }
   };
 
   $.ajax({
@@ -238,47 +255,43 @@ $("#main-search").on("keyup", function (e) {
   }
 });
 
+// searching with filters
 function onTotSearchClick(e) {
-  var valueCity = $("#citySpan").text();
+  const DEFAULT_END_DATE = "2022-12-30";
+  let valueCity = $("#citySpan").text();
   if (valueCity == "select city") {
     valueCity = "";
   }
   $("#citySelect").val(valueCity);
-  var cityVal = $("#citySelect").val();
+  let cityVal = $("#citySelect").val();
 
-  var valueCategory = $("#categorySpan").text();
+  let valueCategory = $("#categorySpan").text();
   if (valueCategory == "select category") {
     valueCategory = "";
   }
   $("#categorySelect").val(valueCategory);
-  var categoryVal = $("#categorySelect").val();
+  let categoryVal = $("#categorySelect").val();
 
-  const startDate = $("#start-date").val();
-  // if (startDate) {
-  //   startDate = "";
-  // } else {
-  //   startDate;
-  // }
-  const endDate = $("#end-date").val();
+  let startDate = $("#start-date").val();
+  let endDate = $("#end-date").val();
+  if (!endDate) {
+    endDate = DEFAULT_END_DATE;
+  }
 
   $("#events-list").empty();
 
   $("#slider-container").hide();
+  $(".event-container").empty();
 
   const onSuccess = (resp) => {
-    $.each(resp, (i, event) => {
-      {
+    if (!$.isArray(resp) || !resp.length) {
+      onError();
+    } else {
+      $.each(resp, (i, event) => {
         showAboutEvent(event);
-      }
-    });
-    // return $("#events-container");
+      });
+    }
   };
-  // const onError = () => {
-  //   // $errorMessage = `<div><h3>No matching results</h3></div>`;
-  //   // $errorMessage.show();
-  //   // console.log("get no data");
-  //   alert("no data");
-  // };
 
   $.ajax({
     method: "GET",

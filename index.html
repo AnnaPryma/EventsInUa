@@ -39,53 +39,59 @@
           <a href=""><span>Events<sub>in</sub>UA</span></a>
         </div>
         <div class="nav-bar">
-          <input
-            class="form-control mr-sm-2"
-            type="search"
-            placeholder="Search event"
-            aria-label="Search"
-            id="main-search"
-          />
-          <!-- <button class="btn">Log in</button>
-          <button class="btn">Sign In</button> -->
-          <a><i class="fas fa-search main-loop"></i></a>
+          <div class="name-search">
+            <input
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="Search event"
+              aria-label="Search"
+              id="main-search"
+            />
+            <a><i class="fas fa-search main-loop"></i></a>
+          </div>
+          <button class="btnn" id="add-event">Add event</button>
         </div>
       </div>
 
       <div class="search-bar">
-        <div class="dropdown">
-          <div class="select" id="citySelect">
-            <span id="citySpan">select city</span>
-            <i class="fa fa-chevron-left"></i>
+        <div class="select-forms">
+          <div class="dropdown">
+            <div class="select" id="citySelect">
+              <span id="citySpan">select city</span>
+              <i class="fa fa-chevron-left"></i>
+            </div>
+            <input type="hidden" />
+            <ul class="dropdown-menu">
+              <li id="lviv">Lviv</li>
+              <li id="kherson">Kherson</li>
+            </ul>
           </div>
-          <input type="hidden" />
-          <ul class="dropdown-menu">
-            <li id="lviv">Lviv</li>
-            <li id="kherson">Kherson</li>
-          </ul>
-        </div>
-        <div class="dropdown">
-          <div class="select" id="categorySelect">
-            <span id="categorySpan">select category</span>
-            <i class="fa fa-chevron-left"></i>
+          <div class="dropdown">
+            <div class="select" id="categorySelect">
+              <span id="categorySpan">select category</span>
+              <i class="fa fa-chevron-left"></i>
+            </div>
+            <input type="hidden" name="category" />
+            <ul class="dropdown-menu">
+              <li id="music">Music</li>
+              <li id="tours">Tours</li>
+              <li id="art">Art</li>
+              <li id="festival">Festivals</li>
+            </ul>
           </div>
-          <input type="hidden" name="category" />
-          <ul class="dropdown-menu">
-            <li id="music">Music</li>
-            <li id="tours">Tours</li>
-            <li id="art">Art</li>
-            <li id="festival">Festivals</li>
-          </ul>
         </div>
-        <div class="date">
-          <input type="text" id="start-date" placeholder="start date" />
+        <div class="date-forms">
+          <div class="date">
+            <input type="text" id="start-date" placeholder="start date" />
+          </div>
+          <div class="date">
+            <input type="text" id="end-date" placeholder="end date" />
+          </div>
+          <div class="search-button">
+            <button class="btnn" id="search">Search</button>
+            <a><i class="fas fa-search totsearch"></i></a>
+          </div>
         </div>
-        <div class="date">
-          <input type="text" id="end-date" placeholder="end date" />
-        </div>
-
-        <button class="btnn" id="search">Search</button>
-        <a><i class="fas fa-search totsearch"></i></a>
       </div>
     </header>
     <main>
@@ -109,6 +115,35 @@
             </div>
           </div>
         </div>
+        <div id="about-us">
+          <a href=""><h3>About us</h3></a>
+          <div class="about-us-photo">
+            Bringing the world together through live experiences
+          </div>
+          <div class="about-us-info">
+            <p>
+              Eventbrite is a global self-service ticketing platform for live
+              experiences that allows anyone to create, share, find and attend
+              events that fuel their passions and enrich their lives. From music
+              festivals, marathons, conferences, community rallies, and
+              fundraisers, to gaming competitions and air guitar contests. Our
+              mission is to bring the world together through live experiences.
+            </p>
+          </div>
+          <div class="map">
+            <h4>You can find us here</h4>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7526.335462079671!2d32.62856523807331!3d46.647827694337735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89a9e3d350acac0!2z0KXQtdGA0YHQvtC90YHRjNC60LAg0LzRltGB0YzQutCwINC00YDRg9C60LDRgNC90Y8!5e0!3m2!1suk!2sua!4v1595350309189!5m2!1suk!2sua"
+              width="600"
+              height="400"
+              frameborder="0"
+              style="border: 0;"
+              allowfullscreen=""
+              aria-hidden="false"
+              tabindex="0"
+            ></iframe>
+          </div>
+        </div>
       </div>
 
       <div id="events-container">
@@ -123,14 +158,27 @@
         <div class="logo">
           <span>Events<sub>in</sub>UA</span>
         </div>
-        <div class="links">
-          <a href=""><i class="fab fa-facebook-square"></i></a>
-          <a href=""><i class="fab fa-twitter"></i></a>
-          <a href=""><i class="fab fa-instagram"></i> </a>
+        <div class="menu">
+          <a href="#">Home</a>
+          <a href="">About us</a>
+          <a href="">Help</a>
         </div>
-        <div class="contact-us">
-          <a href=""><i class="fas fa-envelope"></i></a>
-          <a href=""> Contact us</a>
+
+        <div class="contact-info">
+          <p><u>Contact info:</u></p>
+          <div class="links">
+            <a href="https://www.facebook.com/"
+              ><i class="fab fa-facebook-square"></i
+            ></a>
+            <a href="https://twitter.com/explore"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="https://www.instagram.com/?hl=uk"
+              ><i class="fab fa-instagram"></i>
+            </a>
+          </div>
+          <p><i class="fas fa-phone"></i> +38(050)7088080</p>
+          <p><i class="fas fa-envelope"></i> info@event.ua</p>
         </div>
       </div>
     </footer>

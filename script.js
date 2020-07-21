@@ -158,7 +158,7 @@ function createAboutEvent(event) {
       <i>Description: </i>${event.about.slice(0, 130)}
     </p>
       </div>
-  <div class="btnn-center">
+  <div class="btnn-left">
       <button class="btnn showfull" id="readMore">Read more</button>
     </div>
 </li>`);
@@ -266,7 +266,7 @@ function onTotSearchClick(e) {
   if (!endDate) {
     endDate = DEFAULT_END_DATE;
   }
-  if (Date.parse(startDate) >= Date.parse(endDate)) {
+  if (Date.parse(startDate) > Date.parse(endDate)) {
     showModal();
   }
 
@@ -301,3 +301,134 @@ $("#main-search").on("keyup", function (e) {
 
 $("#search").on("click", onTotSearchClick);
 $(".totsearch").on("click", onTotSearchClick);
+
+function addEvent(data) {
+  $.ajax({
+    type: "POST",
+    url: "http://localhost:3000/events",
+    data: data,
+    success: showSlider,
+    dataType: dataType,
+  });
+}
+
+//modal for adding the event
+function showModalAdd() {
+  const $addEventForm = $(`<div id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Please fill in the information</h5>
+          <button type="button" class="close closed" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        <form>
+        <div class="form-group">
+          <label for="title">Title of the event</label>
+          <input type="text" class="form-control" id="title">
+        </div>
+        <div class="form-group">
+          <label for="date">Date of the event</label>
+          <input type="text" class="form-control" id="date" placeholder="YYYY-MM-DD" >
+        </div>
+        <div class="form-group">
+          <label for="city">Location</label>
+          <select name="city" id="city" class="custom-select">
+          <option value="Lviv">Lviv</option>
+          <option value="Kherson">Kherson</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select name="category" id="category" class="custom-select">
+          <option value="music">Music</option>
+          <option value="tours">Tours</option>
+          <option value="art">Art</option>
+          <option value="festivals">Festivals</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea rows='5' class="form-control" id="description"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="company-name">Company name</label>
+          <input type="text" class="form-control" id="company-name">
+        </div>
+        <p><b>Contact information:</b></p>
+        <div class="form-group">
+          <label for="company-mail">email</label>
+          <input type="text" class="form-control" id="company-mail">
+        </div>
+        <div class="form-group">
+          <label for="company-phone">phone</label>
+          <input type="text" class="form-control" id="company-phone" placeholder="+38 (000) 000-0000">
+        </div>
+        <div class="form-group">
+          <label for="contact_person">Contact person</label>
+          <input type="text" class="form-control" id="contact_person">
+        </div>
+
+        <div class="form-group">
+        <label for="picture">Insert the link on the picture</label>
+        <input type="text" class="form-control" id="picture">
+        </div>
+      </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger closed" >Close</button>
+          <button id='save' type="button" class="btn btn-success">Save changes</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>`);
+
+  $("#events-list").empty();
+  $(".event-container").empty();
+  $("#slider-container").hide();
+  $addEventForm.appendTo($(".event-container"));
+  $addEventForm.find(".closed").on("click", (e) => {
+    $addEventForm.detach();
+    $("#slider-container").show();
+  });
+
+  $addEventForm.find("#save").on("click", (e) => {
+    const city = $addEventForm.find("#city").val();
+    const title = $addEventForm.find("#title").val();
+    const date = $addEventForm.find("#date").val();
+    const about = $addEventForm.find("#description").val();
+    const picture = $addEventForm.find("#picture").val();
+    const category = $addEventForm.find("#category").val();
+    const company = $addEventForm.find("#company-name").val();
+    const email = $addEventForm.find("#company-mail").val();
+    const phone = $addEventForm.find("#company-phone").val();
+    const contact_person = $addEventForm.find("#contact_person").val();
+
+    addEvent({
+      city,
+      title,
+      date,
+      about,
+      picture,
+      category,
+      company,
+      email,
+      phone,
+      contact_person,
+    }).then((resp) => {
+      if (resp.data) {
+        $addEventForm.detach();
+        $("#slider-container").show();
+      } else {
+        alert("No data!");
+      }
+    });
+  });
+}
+
+$("#add-event").on("click", (e) => {
+  showModalAdd();
+});

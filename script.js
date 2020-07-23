@@ -1,3 +1,20 @@
+const dropdown = $(".dropdown");
+const DATE_PICKER_OPTIONS = {
+  dateFormat: "yy-mm-dd",
+};
+const start_date = $("#start-date");
+const end_date = $("#end-date");
+const sliderContainer = $("#slider-container");
+const eventsList = $("#events-list");
+const aboutContainer = $("#about-us");
+const helpContainer = $("#help-container");
+const $mainSearchInput = $("#main-search");
+const DEFAULT_END_DATE = "2022-12-30";
+
+/**
+ * shows the date in format DD-MM-YYY
+ * @param {string} date
+ */
 function formatDate(date) {
   let d = new Date(date),
     month = "" + (d.getMonth() + 1),
@@ -10,88 +27,13 @@ function formatDate(date) {
   return [day, month, year].join("-");
 }
 
-$(document).ready(function () {
-  // slick slider
-  function createSliderItem(event) {
-    let dataShow = event.date;
-    const $sliderItem = $(`<div class="slider-item">
-    <img class="slider-image" src=${event.picture} />
-          <h3>${event.title}</h3>
-      <div class="event-details">
-      <p>${event.city}</p>
-      <p><i class="far fa-calendar-alt"></i> ${formatDate(dataShow)} </p>
-          </div>
-  </div>`);
-    let path = $("#slider-container");
-
-    $sliderItem.find(".slider-image").on("click", () => showEvent(event, path));
-
-    return $sliderItem;
-  }
-
-  function showSliderItems(event) {
-    const $sliderItemContent = createSliderItem(event);
-    $sliderItemContent.appendTo($(".responsive"));
-  }
-
-  const showSlider = (resp) => {
-    $.each(resp, (i, event) => {
-      showSliderItems(event);
-    });
-    $(".responsive").slick({
-      dots: true,
-      prevArrow: $(".prev"),
-      nextArrow: $(".next"),
-      infinite: false,
-      speed: 300,
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      infinite: true,
-      dots: true,
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            infinite: true,
-            dots: true,
-          },
-        },
-        {
-          breakpoint: 800,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1,
-            infinite: true,
-            dots: true,
-          },
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-          },
-        },
-      ],
-    });
-  };
-
-  $.ajax({
-    method: "GET",
-    url: "http://localhost:3000/events?_sort=date&_limit=8",
-    success: showSlider,
-  });
-});
-
 //Dropdown Menu
-$(".dropdown").click(function () {
+dropdown.click(function () {
   $(this).attr("tabindex", 1).focus();
   $(this).toggleClass("active");
   $(this).find(".dropdown-menu").slideToggle(300);
 });
-$(".dropdown").focusout(function () {
+dropdown.focusout(function () {
   $(this).removeClass("active");
   $(this).find(".dropdown-menu").slideUp(300);
 });
@@ -101,17 +43,16 @@ $(".dropdown .dropdown-menu li").click(function () {
 });
 
 // datepicker
-const DATE_PICKER_OPTIONS = {
-  dateFormat: "yy-mm-dd",
-};
 $(function () {
-  $("#start-date").datepicker(DATE_PICKER_OPTIONS);
+  start_date.datepicker(DATE_PICKER_OPTIONS);
 });
 $(function () {
-  $("#end-date").datepicker(DATE_PICKER_OPTIONS);
+  end_date.datepicker(DATE_PICKER_OPTIONS);
 });
 
-//function to show modal about date verification
+/**
+ * shows modal if end date is leass than start date
+ */
 function showModal() {
   const $modal = $(`<div id="myModal" >
   <span class="close">&times;</span>
@@ -125,10 +66,10 @@ function showModal() {
   $modal.find(".close").on("click", (e) => {
     $modal.detach();
   });
-  $("#end-date").val() = "";
+  end_date.val() = "";
 }
 
-// arrow up
+// arrow up with scrolling to the top
 $(window).scroll(function () {
   if ($(this).scrollTop() >= 50) {
     $("#return-to-top").fadeIn(200);
@@ -145,7 +86,89 @@ $("#return-to-top").click(function () {
   );
 });
 
-//function to make short information about event
+/**
+ * creates template of one slider
+ * @param {{*}} event
+ */
+function createSliderItem(event) {
+  let dataShow = event.date;
+  const $sliderItem = $(`<div class="slider-item">
+  <img class="slider-image" src=${event.picture} />
+        <h3>${event.title}</h3>
+    <div class="event-details">
+    <p>${event.city}</p>
+    <p><i class="far fa-calendar-alt"></i> ${formatDate(dataShow)} </p>
+        </div>
+</div>`);
+  let path = sliderContainer;
+
+  $sliderItem.find(".slider-image").on("click", () => showEvent(event, path));
+  scrollTop: 0;
+
+  return $sliderItem;
+}
+
+/**
+ * creates a set of sliders
+ * @param {{*}} event
+ */
+function showSliderItems(event) {
+  const $sliderItemContent = createSliderItem(event);
+  $sliderItemContent.appendTo($(".responsive"));
+}
+
+/**
+ * show slides in a slider form with responsive design (@media)
+ * @param {{*}} resp
+ */
+const showSlider = (resp) => {
+  $.each(resp, (i, event) => {
+    showSliderItems(event);
+  });
+  $(".responsive").slick({
+    dots: true,
+    prevArrow: $(".prev"),
+    nextArrow: $(".next"),
+    infinite: false,
+    speed: 300,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    infinite: true,
+    dots: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  });
+};
+
+/**
+ * shows short information about event
+ * @param {object} event
+ */
 function createAboutEvent(event) {
   const $aboutEvent = $(`
   <li>
@@ -163,20 +186,26 @@ function createAboutEvent(event) {
     </div>
 </li>`);
 
-  let path = $("#events-container");
+  const path = $("#events-container");
   $aboutEvent.find(".showfull").on("click", () => showEvent(event, path));
 
   path.show();
   return $aboutEvent;
 }
 
-//function to show short information about event in a list
+/**
+ * appends and shows short information about events in a list
+ * @param {object} event
+ */
 function showAboutEvent(event) {
   const $aboutEvent = createAboutEvent(event);
-  $aboutEvent.appendTo($("#events-list"));
+  $aboutEvent.appendTo(eventsList);
 }
 
-//function to show full information about event
+/**
+ * shows template with full information about events
+ * @param {object, DOM element} event
+ */
 function showEvent(event, path) {
   const $fullEvent = $(`<div class="event-full">
         <img src="${event.picture}" />
@@ -188,11 +217,25 @@ function showEvent(event, path) {
             Description: ${event.about}
           </p>
           <hr />
-          <h3>Details:</h3>
-          <p>Organization: ${event.company}</p>
-          <p>e-mail:${event.email}</p>
-          <p>phone: ${event.phone}</p>
-          <p>contact person: ${event.contact_person}</p>
+          <div class="details-section">
+            <div class="details">
+              <h3>Details:</h3>
+              <p>Organization: ${event.company}</p>
+              <p>e-mail: ${event.email}</p>
+              <p>phone: ${event.phone}</p>
+              <p>contact person: ${event.contact_person}</p>
+            </div>
+            <div class="map">
+            <iframe
+              src=${event.map}
+              frameborder="0"
+              style="border: 0;"
+              allowfullscreen=""
+              aria-hidden="false"
+              tabindex="0"
+            ></iframe>  </div>
+          </div>
+          
           <div class="btnn-center">
             <button class="btnn" id="go-back">Go back</button>
           </div>
@@ -210,22 +253,25 @@ function showEvent(event, path) {
   });
 }
 
-//function to inform if no response on search
+/**
+ * error template to inform if no response on search
+ */
 function onError() {
   const $errorMessage = $(
     `<li class="error"><div ><h3>No matching results</h3></div></li>`
   );
-  $errorMessage.appendTo($("#events-list"));
+  $errorMessage.appendTo(eventsList);
 }
 
-//searching by name
-const $mainSearchInput = $("#main-search");
-
+/**
+ * function to search by name
+ * @param {*} e
+ */
 function onSearchClick(e) {
-  const searchVal = $mainSearchInput.val().toLowerCase().trim();
-  $("#events-list").empty();
+  let searchVal = $mainSearchInput.val().toLowerCase().trim();
+  eventsList.empty();
   $(".event-container").empty();
-  $("#slider-container").hide();
+  sliderContainer.hide();
 
   const onSuccess = (resp) => {
     if (!$.isArray(resp) || !resp.length) {
@@ -244,9 +290,11 @@ function onSearchClick(e) {
   });
 }
 
-// searching with filters
+/**
+ * function of search by filters
+ * @param {*} e
+ */
 function onTotSearchClick(e) {
-  const DEFAULT_END_DATE = "2022-12-30";
   let valueCity = $("#citySpan").text();
   if (valueCity == "select city") {
     valueCity = "";
@@ -261,8 +309,8 @@ function onTotSearchClick(e) {
   $("#categorySelect").val(valueCategory);
   let categoryVal = $("#categorySelect").val();
 
-  let startDate = $("#start-date").val();
-  let endDate = $("#end-date").val();
+  let startDate = start_date.val();
+  let endDate = end_date.val();
   if (!endDate) {
     endDate = DEFAULT_END_DATE;
   }
@@ -270,9 +318,10 @@ function onTotSearchClick(e) {
     showModal();
   }
 
-  $("#events-list").empty();
+  eventsList.empty();
 
-  $("#slider-container").hide();
+  sliderContainer.hide();
+
   $(".event-container").empty();
 
   const onSuccess = (resp) => {
@@ -292,27 +341,22 @@ function onTotSearchClick(e) {
   });
 }
 
-$(".main-loop").on("click", onSearchClick);
-$("#main-search").on("keyup", function (e) {
-  if (e.keyCode === 13) {
-    onSearchClick();
-  }
-});
-
-$("#search").on("click", onTotSearchClick);
-$(".totsearch").on("click", onTotSearchClick);
-
+/**
+ * posts a new event with params to db.json
+ * @param {{*}} data
+ */
 function addEvent(data) {
   $.ajax({
     type: "POST",
     url: "http://localhost:3000/events",
     data: data,
     success: showSlider,
-    dataType: dataType,
   });
 }
 
-//modal for adding the event
+/**
+ * creats template of adding new event
+ */
 function showModalAdd() {
   const $addEventForm = $(`<div id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -386,13 +430,14 @@ function showModalAdd() {
     </div>
   </div>`);
 
-  $("#events-list").empty();
+  eventsList.empty();
   $(".event-container").empty();
-  $("#slider-container").hide();
+  sliderContainer.hide();
+
   $addEventForm.appendTo($(".event-container"));
   $addEventForm.find(".closed").on("click", (e) => {
     $addEventForm.detach();
-    $("#slider-container").show();
+    sliderContainer.show();
   });
 
   $addEventForm.find("#save").on("click", (e) => {
@@ -421,7 +466,7 @@ function showModalAdd() {
     }).then((resp) => {
       if (resp.data) {
         $addEventForm.detach();
-        $("#slider-container").show();
+        sliderContainer.show();
       } else {
         alert("No data!");
       }
@@ -429,6 +474,37 @@ function showModalAdd() {
   });
 }
 
+//shows modal of adding ne event
 $("#add-event").on("click", (e) => {
   showModalAdd();
+});
+
+//execution of name-search function by click on loop
+$(".main-loop").on("click", onSearchClick);
+
+//execution of name-search function by click on Enter in input
+$("#main-search").on("keyup", function (e) {
+  if (e.keyCode === 13) {
+    onSearchClick();
+  }
+});
+
+//execution of filters-search function by click on search-button
+$("#search").on("click", onTotSearchClick);
+
+//execution of filters-search function by click on loop
+$(".totsearch").on("click", onTotSearchClick);
+
+// $("#about").on("click", (e) => {
+//   sliderContainer.hide();
+//   eventsList.hide();
+// });
+
+//GET request to json for showing an appropriate sliders
+$(document).ready(function () {
+  $.ajax({
+    method: "GET",
+    url: "http://localhost:3000/events?_sort=date&_limit=8",
+    success: showSlider,
+  });
 });

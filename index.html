@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="normalize.css" />
     <!-- font links -->
     <link
-    href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Spartan:wght@700&display=swapfamily=Rowdies:wght@700&display=swap
-    rel="stylesheet"/>
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Spartan:wght@700&display=swapfamily=Rowdies:wght@700&display=swap"
+    />
     <!-- bootstrap links -->
     <link
       rel="stylesheet"
@@ -116,32 +117,23 @@
           </div>
         </div>
         <div id="about-us">
-          <a href=""><h3>About us</h3></a>
-          <div class="about-us-photo">
-            Bringing the world together through live experiences
-          </div>
           <div class="about-us-info">
             <p>
-              Eventbrite is a global self-service ticketing platform for live
-              experiences that allows anyone to create, share, find and attend
-              events that fuel their passions and enrich their lives. From music
-              festivals, marathons, conferences, community rallies, and
-              fundraisers, to gaming competitions and air guitar contests. Our
-              mission is to bring the world together through live experiences.
+              <a href="" name="about" class="logo"
+                ><span>Events<sub>in</sub>UA</span></a
+              ><span class="text-about"
+                >is a global self-service ticketing platform for live
+                experiences that allows anyone to create, share, find and attend
+                events that fuel their passions and enrich their lives. From
+                music festivals, marathons, conferences, community rallies, and
+                fundraisers, to gaming competitions and air guitar contests. Our
+                mission is to bring the world together through live
+                experiences.</span
+              >
             </p>
           </div>
-          <div class="map">
-            <h4>You can find us here</h4>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7526.335462079671!2d32.62856523807331!3d46.647827694337735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89a9e3d350acac0!2z0KXQtdGA0YHQvtC90YHRjNC60LAg0LzRltGB0YzQutCwINC00YDRg9C60LDRgNC90Y8!5e0!3m2!1suk!2sua!4v1595350309189!5m2!1suk!2sua"
-              width="600"
-              height="400"
-              frameborder="0"
-              style="border: 0;"
-              allowfullscreen=""
-              aria-hidden="false"
-              tabindex="0"
-            ></iframe>
+          <div class="about-us-photo">
+            <p>Bringing the world together through live experiences</p>
           </div>
         </div>
       </div>
@@ -150,6 +142,7 @@
         <ul id="events-list" class="list-unstyled"></ul>
       </div>
       <div class="event-container"></div>
+      <div id="help-container"></div>
 
       <a id="return-to-top"><i class="fas fa-chevron-up"></i></a>
     </main>
@@ -159,8 +152,8 @@
           <span>Events<sub>in</sub>UA</span>
         </div>
         <div class="menu">
-          <a href="#">Home</a>
-          <a href="">About us</a>
+          <a href="">Home</a>
+          <a href="#about" id="about">About us</a>
           <a href="">Help</a>
         </div>
 

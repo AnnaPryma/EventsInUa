@@ -5,7 +5,7 @@
       "index": 0,
       "city": "Lviv",
       "title": "Light-show perfomance",
-      "date": "2020-07-24",
+      "date": "2020-08-28",
       "about": "Pariatur dolore magna nostrud id deserunt elit ea esse cillum exercitation cupidatat. Enim fugiat eiusmod nulla veniam magna labore eu reprehenderit est cillum. Adipisicing mollit et incididunt duis adipisicing ea cupidatat esse ut tempor duis officia.\r\n",
       "picture": "./img/light-show.jpg",
       "category": "art",
@@ -13,14 +13,15 @@
       "company_id": 232,
       "email": "anniehartman@playce.com",
       "phone": "+38 (956) 466-3357",
-      "contact_person": "Bill"
+      "contact_person": "Bill",
+      "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7526.335462079671!2d32.62856523807331!3d46.647827694337735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89a9e3d350acac0!2z0KXQtdGA0YHQvtC90YHRjNC60LAg0LzRltGB0YzQutCwINC00YDRg9C60LDRgNC90Y8!5e0!3m2!1suk!2sua!4v1595350309189!5m2!1suk!2sua"
     },
     {
       "id": "5f0360b5fe07aafe5b95d320",
       "index": 1,
       "city": "Kherson",
       "title": "Street art competition",
-      "date": "2020-07-25",
+      "date": "2020-07-29",
       "about": "Ex excepteur occaecat nostrud dolor do ea ut non deserunt consectetur est qui fugiat. Duis culpa laborum commodo cillum laboris sint reprehenderit. Veniam cillum aliqua laborum ullamco voluptate aliquip ullamco sunt sint sint duis. Aute magna cupidatat nulla pariatur incididunt.\r\n",
       "picture": "./img/street-art.jpg",
       "category": "art",
@@ -28,14 +29,15 @@
       "company_id": 232,
       "email": "anniehartman@limage.com",
       "phone": "+38 (815) 521-2430",
-      "contact_person": "Bill"
+      "contact_person": "Bill",
+      "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7526.335462079671!2d32.62856523807331!3d46.647827694337735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89a9e3d350acac0!2z0KXQtdGA0YHQvtC90YHRjNC60LAg0LzRltGB0YzQutCwINC00YDRg9C60LDRgNC90Y8!5e0!3m2!1suk!2sua!4v1595350309189!5m2!1suk!2sua"
     },
     {
       "id": "5f0360b54ccf69f76d26f4d1",
       "index": 2,
       "city": "Lviv",
       "title": "Festival of street food",
-      "date": "2020-07-26",
+      "date": "2020-07-30",
       "about": "Nostrud laboris aute ad ea esse labore. Et ex tempor ea est. Et nulla tempor id duis reprehenderit Lorem. Quis laborum dolore quis qui mollit proident. Ipsum reprehenderit nulla pariatur ex esse consequat enim minim ex id et dolor laboris eiusmod. Sint velit sunt deserunt nostrud laboris est. Duis anim irure velit minim est eu ipsum elit voluptate pariatur Lorem.\r\n",
       "picture": "./img/street-food.jpg",
       "category": "festivals",
@@ -43,7 +45,8 @@
       "company_id": 232,
       "email": "anniehartman@xumonk.com",
       "phone": "+38 (986) 491-2268",
-      "contact_person": "Bill"
+      "contact_person": "Bill",
+      "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7526.335462079671!2d32.62856523807331!3d46.647827694337735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89a9e3d350acac0!2z0KXQtdGA0YHQvtC90YHRjNC60LAg0LzRltGB0YzQutCwINC00YDRg9C60LDRgNC90Y8!5e0!3m2!1suk!2sua!4v1595350309189!5m2!1suk!2sua"
     },
     {
       "id": "5f0360b5222cd4e1cd58791f",
@@ -58,7 +61,8 @@
       "company_id": 232,
       "email": "anniehartman@ecraze.com",
       "phone": "+38 (871) 540-2622",
-      "contact_person": "Bill"
+      "contact_person": "Bill",
+      "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7526.335462079671!2d32.62856523807331!3d46.647827694337735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89a9e3d350acac0!2z0KXQtdGA0YHQvtC90YHRjNC60LAg0LzRltGB0YzQutCwINC00YDRg9C60LDRgNC90Y8!5e0!3m2!1suk!2sua!4v1595350309189!5m2!1suk!2sua"
     },
     {
       "id": "5f0360b5fa824cba4657aadf",
@@ -73,7 +77,8 @@
       "company_id": 232,
       "email": "anniehartman@fangold.com",
       "phone": "+38 (918) 538-3777",
-      "contact_person": "Bill"
+      "contact_person": "Bill",
+      "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7526.335462079671!2d32.62856523807331!3d46.647827694337735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89a9e3d350acac0!2z0KXQtdGA0YHQvtC90YHRjNC60LAg0LzRltGB0YzQutCwINC00YDRg9C60LDRgNC90Y8!5e0!3m2!1suk!2sua!4v1595350309189!5m2!1suk!2sua"
     },
     {
       "id": "5f0360b54634cd0051dbb52b",
@@ -88,7 +93,8 @@
       "company_id": 232,
       "email": "anniehartman@intergeek.com",
       "phone": "+38 (881) 520-2091",
-      "contact_person": "Bill"
+      "contact_person": "Bill",
+      "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7526.335462079671!2d32.62856523807331!3d46.647827694337735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89a9e3d350acac0!2z0KXQtdGA0YHQvtC90YHRjNC60LAg0LzRltGB0YzQutCwINC00YDRg9C60LDRgNC90Y8!5e0!3m2!1suk!2sua!4v1595350309189!5m2!1suk!2sua"
     },
     {
       "id": "5f0360b51837289ac296bd12",
@@ -103,7 +109,8 @@
       "company_id": 232,
       "email": "anniehartman@portico.com",
       "phone": "+38 (883) 445-2805",
-      "contact_person": "Bill"
+      "contact_person": "Bill",
+      "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7526.335462079671!2d32.62856523807331!3d46.647827694337735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89a9e3d350acac0!2z0KXQtdGA0YHQvtC90YHRjNC60LAg0LzRltGB0YzQutCwINC00YDRg9C60LDRgNC90Y8!5e0!3m2!1suk!2sua!4v1595350309189!5m2!1suk!2sua"
     },
     {
       "id": "5f0360b5e49f91812ddc219e",
@@ -118,7 +125,8 @@
       "company_id": 232,
       "email": "anniehartman@pushcart.com",
       "phone": "+38 (907) 494-2739",
-      "contact_person": "Bill"
+      "contact_person": "Bill",
+      "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7526.335462079671!2d32.62856523807331!3d46.647827694337735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89a9e3d350acac0!2z0KXQtdGA0YHQvtC90YHRjNC60LAg0LzRltGB0YzQutCwINC00YDRg9C60LDRgNC90Y8!5e0!3m2!1suk!2sua!4v1595350309189!5m2!1suk!2sua"
     },
     {
       "id": "5f0360b510b40bf91b6e5e2f",
@@ -133,7 +141,8 @@
       "company_id": 232,
       "email": "anniehartman@acumentor.com",
       "phone": "+38 (897) 504-2756",
-      "contact_person": "Bill"
+      "contact_person": "Bill",
+      "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7526.335462079671!2d32.62856523807331!3d46.647827694337735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89a9e3d350acac0!2z0KXQtdGA0YHQvtC90YHRjNC60LAg0LzRltGB0YzQutCwINC00YDRg9C60LDRgNC90Y8!5e0!3m2!1suk!2sua!4v1595350309189!5m2!1suk!2sua"
     },
     {
       "id": "5f0360b51352ba35db62911c",
@@ -148,7 +157,8 @@
       "company_id": 232,
       "email": "anniehartman@pyramax.com",
       "phone": "+38 (922) 491-3881",
-      "contact_person": "Bill"
+      "contact_person": "Bill",
+      "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7526.335462079671!2d32.62856523807331!3d46.647827694337735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89a9e3d350acac0!2z0KXQtdGA0YHQvtC90YHRjNC60LAg0LzRltGB0YzQutCwINC00YDRg9C60LDRgNC90Y8!5e0!3m2!1suk!2sua!4v1595350309189!5m2!1suk!2sua"
     },
     {
       "id": "5f0360b500c811503d238243",
@@ -163,7 +173,8 @@
       "company_id": 232,
       "email": "anniehartman@quizka.com",
       "phone": "+38 (947) 436-2716",
-      "contact_person": "Bill"
+      "contact_person": "Bill",
+      "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7526.335462079671!2d32.62856523807331!3d46.647827694337735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89a9e3d350acac0!2z0KXQtdGA0YHQvtC90YHRjNC60LAg0LzRltGB0YzQutCwINC00YDRg9C60LDRgNC90Y8!5e0!3m2!1suk!2sua!4v1595350309189!5m2!1suk!2sua"
     },
     {
       "id": "5f0360b5410c362bd05aa875",
@@ -178,7 +189,8 @@
       "company_id": 232,
       "email": "anniehartman@eplode.com",
       "phone": "+38 (985) 426-2820",
-      "contact_person": "Bill"
+      "contact_person": "Bill",
+      "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7526.335462079671!2d32.62856523807331!3d46.647827694337735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89a9e3d350acac0!2z0KXQtdGA0YHQvtC90YHRjNC60LAg0LzRltGB0YzQutCwINC00YDRg9C60LDRgNC90Y8!5e0!3m2!1suk!2sua!4v1595350309189!5m2!1suk!2sua"
     },
     {
       "id": "5f0360b53734c553bbdd6e17",
@@ -193,7 +205,8 @@
       "company_id": 232,
       "email": "anniehartman@paragonia.com",
       "phone": "+38 (890) 492-3272",
-      "contact_person": "Bill"
+      "contact_person": "Bill",
+      "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7526.335462079671!2d32.62856523807331!3d46.647827694337735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89a9e3d350acac0!2z0KXQtdGA0YHQvtC90YHRjNC60LAg0LzRltGB0YzQutCwINC00YDRg9C60LDRgNC90Y8!5e0!3m2!1suk!2sua!4v1595350309189!5m2!1suk!2sua"
     },
     {
       "id": "5f0360b5f03d04dde74158da",
@@ -208,7 +221,8 @@
       "company_id": 232,
       "email": "anniehartman@medmex.com",
       "phone": "+38 (927) 544-3801",
-      "contact_person": "Bill"
+      "contact_person": "Bill",
+      "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7526.335462079671!2d32.62856523807331!3d46.647827694337735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89a9e3d350acac0!2z0KXQtdGA0YHQvtC90YHRjNC60LAg0LzRltGB0YzQutCwINC00YDRg9C60LDRgNC90Y8!5e0!3m2!1suk!2sua!4v1595350309189!5m2!1suk!2sua"
     },
     {
       "id": "5f0360b5a16dbedb26f0b696",
@@ -223,7 +237,8 @@
       "company_id": 232,
       "email": "anniehartman@quantasis.com",
       "phone": "+38 (845) 595-3878",
-      "contact_person": "Bill"
+      "contact_person": "Bill",
+      "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7526.335462079671!2d32.62856523807331!3d46.647827694337735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89a9e3d350acac0!2z0KXQtdGA0YHQvtC90YHRjNC60LAg0LzRltGB0YzQutCwINC00YDRg9C60LDRgNC90Y8!5e0!3m2!1suk!2sua!4v1595350309189!5m2!1suk!2sua"
     },
     {
       "id": "5f0360b5b03046dc2ad9b406",
@@ -238,7 +253,8 @@
       "company_id": 232,
       "email": "anniehartman@yurture.com",
       "phone": "+38 (829) 484-3140",
-      "contact_person": "Bill"
+      "contact_person": "Bill",
+      "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7526.335462079671!2d32.62856523807331!3d46.647827694337735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89a9e3d350acac0!2z0KXQtdGA0YHQvtC90YHRjNC60LAg0LzRltGB0YzQutCwINC00YDRg9C60LDRgNC90Y8!5e0!3m2!1suk!2sua!4v1595350309189!5m2!1suk!2sua"
     }
   ]
 }

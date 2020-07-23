@@ -301,6 +301,10 @@ main {
 .fa-calendar-alt {
   font-size: 1.3rem;
 }
+
+.modal-body span {
+  color: red;
+}
 /* slider */
 html {
   box-sizing: border-box;

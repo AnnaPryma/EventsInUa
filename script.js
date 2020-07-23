@@ -6,8 +6,6 @@ const start_date = $("#start-date");
 const end_date = $("#end-date");
 const sliderContainer = $("#slider-container");
 const eventsList = $("#events-list");
-const aboutContainer = $("#about-us");
-const helpContainer = $("#help-container");
 const $mainSearchInput = $("#main-search");
 const DEFAULT_END_DATE = "2022-12-30";
 
@@ -66,7 +64,7 @@ function showModal() {
   $modal.find(".close").on("click", (e) => {
     $modal.detach();
   });
-  end_date.val() = "";
+  end_date.val("");
 }
 
 // arrow up with scrolling to the top
@@ -87,37 +85,6 @@ $("#return-to-top").click(function () {
 });
 
 /**
- * creates template of one slider
- * @param {{*}} event
- */
-function createSliderItem(event) {
-  let dataShow = event.date;
-  const $sliderItem = $(`<div class="slider-item">
-  <img class="slider-image" src=${event.picture} />
-        <h3>${event.title}</h3>
-    <div class="event-details">
-    <p>${event.city}</p>
-    <p><i class="far fa-calendar-alt"></i> ${formatDate(dataShow)} </p>
-        </div>
-</div>`);
-  let path = sliderContainer;
-
-  $sliderItem.find(".slider-image").on("click", () => showEvent(event, path));
-  scrollTop: 0;
-
-  return $sliderItem;
-}
-
-/**
- * creates a set of sliders
- * @param {{*}} event
- */
-function showSliderItems(event) {
-  const $sliderItemContent = createSliderItem(event);
-  $sliderItemContent.appendTo($(".responsive"));
-}
-
-/**
  * show slides in a slider form with responsive design (@media)
  * @param {{*}} resp
  */
@@ -125,6 +92,7 @@ const showSlider = (resp) => {
   $.each(resp, (i, event) => {
     showSliderItems(event);
   });
+  $("body,html").scrollTop(0);
   $(".responsive").slick({
     dots: true,
     prevArrow: $(".prev"),
@@ -166,6 +134,45 @@ const showSlider = (resp) => {
 };
 
 /**
+ * creates a set of sliders
+ * @param {{*}} event
+ */
+function showSliderItems(event) {
+  const $sliderItemContent = createSliderItem(event);
+  $sliderItemContent.appendTo($(".responsive"));
+}
+
+/**
+ * creates template of one slider
+ * @param {{*}} event
+ */
+function createSliderItem(event) {
+  let dataShow = event.date;
+  const $sliderItem = $(`<div class="slider-item">
+  <img class="slider-image" src=${event.picture} />
+        <h3>${event.title}</h3>
+    <div class="event-details">
+    <p>${event.city}</p>
+    <p><i class="far fa-calendar-alt"></i> ${formatDate(dataShow)} </p>
+        </div>
+</div>`);
+  let path = sliderContainer;
+
+  $sliderItem.find(".slider-image").on("click", () => showEvent(event, path));
+
+  return $sliderItem;
+}
+
+/**
+ * appends and shows short information about events in a list
+ * @param {object} event
+ */
+function showAboutEvent(event) {
+  const $aboutEvent = createAboutEvent(event);
+  $aboutEvent.appendTo(eventsList);
+}
+
+/**
  * shows short information about event
  * @param {object} event
  */
@@ -194,15 +201,6 @@ function createAboutEvent(event) {
 }
 
 /**
- * appends and shows short information about events in a list
- * @param {object} event
- */
-function showAboutEvent(event) {
-  const $aboutEvent = createAboutEvent(event);
-  $aboutEvent.appendTo(eventsList);
-}
-
-/**
  * shows template with full information about events
  * @param {object, DOM element} event
  */
@@ -220,7 +218,7 @@ function showEvent(event, path) {
           <div class="details-section">
             <div class="details">
               <h3>Details:</h3>
-              <p>Organization: ${event.company}</p>
+              <p>Hosted by: ${event.company}</p>
               <p>e-mail: ${event.email}</p>
               <p>phone: ${event.phone}</p>
               <p>contact person: ${event.contact_person}</p>
@@ -316,12 +314,11 @@ function onTotSearchClick(e) {
   }
   if (Date.parse(startDate) > Date.parse(endDate)) {
     showModal();
+    return;
   }
 
   eventsList.empty();
-
   sliderContainer.hide();
-
   $(".event-container").empty();
 
   const onSuccess = (resp) => {
@@ -359,32 +356,37 @@ function addEvent(data) {
  */
 function showModalAdd() {
   const $addEventForm = $(`<div id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Please fill in the information</h5>
+          
           <button type="button" class="close closed" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
+        <p><b>Fields marked with <span>***</span> are required to fill in</b></p>
         <form>
-        <div class="form-group">
-          <label for="title">Title of the event</label>
+        <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="title">Title of the event <span>***</span></label>
           <input type="text" class="form-control" id="title">
         </div>
-        <div class="form-group">
-          <label for="date">Date of the event</label>
+        <div class="form-group col-md-4">
+          <label for="date">Date of the event <span>***</span></label>
           <input type="text" class="form-control" id="date" placeholder="YYYY-MM-DD" >
         </div>
-        <div class="form-group">
+        </div>
+        <div class="form-row">
+        <div class="form-group col-md-4">
           <label for="city">Location</label>
           <select name="city" id="city" class="custom-select">
           <option value="Lviv">Lviv</option>
           <option value="Kherson">Kherson</option>
           </select>
         </div>
-        <div class="form-group">
+        <div class="form-group col-md-4">
           <label for="category">Category</label>
           <select name="category" id="category" class="custom-select">
           <option value="music">Music</option>
@@ -393,28 +395,32 @@ function showModalAdd() {
           <option value="festivals">Festivals</option>
           </select>
         </div>
-        <div class="form-group">
-          <label for="description">Description</label>
-          <textarea rows='5' class="form-control" id="description"></textarea>
         </div>
         <div class="form-group">
+          <label for="description">Description <span>***</span></label>
+          <textarea rows='5' class="form-control" id="description"></textarea>
+        </div>
+        <p><b>Contact information:</b></p>
+        <div class="form-row">
+        <div class="form-group col-md-6">
           <label for="company-name">Company name</label>
           <input type="text" class="form-control" id="company-name">
         </div>
-        <p><b>Contact information:</b></p>
-        <div class="form-group">
+        <div class="form-group col-md-4">
+          <label for="contact_person ">Contact person <span>***</span></label>
+          <input type="text" class="form-control" id="contact_person">
+        </div>
+        </div>
+        <div class="form-row">
+        <div class="form-group col-md-6">
           <label for="company-mail">email</label>
           <input type="text" class="form-control" id="company-mail">
         </div>
-        <div class="form-group">
-          <label for="company-phone">phone</label>
+        <div class="form-group col-md-4">
+          <label for="company-phone">phone <span>***</span></label>
           <input type="text" class="form-control" id="company-phone" placeholder="+38 (000) 000-0000">
         </div>
-        <div class="form-group">
-          <label for="contact_person">Contact person</label>
-          <input type="text" class="form-control" id="contact_person">
         </div>
-
         <div class="form-group">
         <label for="picture">Insert the link on the picture</label>
         <input type="text" class="form-control" id="picture">
@@ -438,6 +444,7 @@ function showModalAdd() {
   $addEventForm.find(".closed").on("click", (e) => {
     $addEventForm.detach();
     sliderContainer.show();
+    $("body,html").scrollTop(0);
   });
 
   $addEventForm.find("#save").on("click", (e) => {
@@ -452,25 +459,36 @@ function showModalAdd() {
     const phone = $addEventForm.find("#company-phone").val();
     const contact_person = $addEventForm.find("#contact_person").val();
 
-    addEvent({
-      city,
-      title,
-      date,
-      about,
-      picture,
-      category,
-      company,
-      email,
-      phone,
-      contact_person,
-    }).then((resp) => {
-      if (resp.data) {
-        $addEventForm.detach();
-        sliderContainer.show();
-      } else {
-        alert("No data!");
-      }
-    });
+    if (
+      title === "" ||
+      about === "" ||
+      date === "" ||
+      phone === "" ||
+      contact_person === ""
+    ) {
+      alert("pls fill in all fields");
+    } else {
+      addEvent({
+        city,
+        title,
+        date,
+        about,
+        picture,
+        category,
+        company,
+        email,
+        phone,
+        contact_person,
+      }).then((resp) => {
+        if (resp.data) {
+          $addEventForm.hide();
+          sliderContainer.show();
+          $("body,html").scrollTop(0);
+        } else {
+          alert("No data!");
+        }
+      });
+    }
   });
 }
 
@@ -494,11 +512,6 @@ $("#search").on("click", onTotSearchClick);
 
 //execution of filters-search function by click on loop
 $(".totsearch").on("click", onTotSearchClick);
-
-// $("#about").on("click", (e) => {
-//   sliderContainer.hide();
-//   eventsList.hide();
-// });
 
 //GET request to json for showing an appropriate sliders
 $(document).ready(function () {

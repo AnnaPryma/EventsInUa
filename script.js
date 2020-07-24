@@ -334,7 +334,7 @@ function onTotSearchClick(e) {
 
   $.ajax({
     method: "GET",
-    url: `http://localhost:3000/events?city_like=${cityVal}&date_gte=${startDate}&date_lte=${endDate}&category_like=${categoryVal}`,
+    url: `http://localhost:3000/events?city_like=${cityVal}&date_gte=${startDate}&date_lte=${endDate}&category_like=${categoryVal}&_sort=date`,
     success: onSuccess,
   });
 }

@@ -205,6 +205,7 @@ function createAboutEvent(event) {
  * @param {object, DOM element} event
  */
 function showEvent(event, path) {
+  $("body,html").scrollTop(0);
   const $fullEvent = $(`<div class="event-full">
         <img src="${event.picture}" />
         <div class="event-details">
@@ -391,6 +392,7 @@ function showModalAdd() {
           <select name="category" id="category" class="custom-select">
           <option value="music">Music</option>
           <option value="tours">Tours</option>
+          <option value="sport">Sport</option>
           <option value="art">Art</option>
           <option value="festivals">Festivals</option>
           </select>
@@ -515,9 +517,17 @@ $(".totsearch").on("click", onTotSearchClick);
 
 //GET request to json for showing an appropriate sliders
 $(document).ready(function () {
+  let today = new Date();
+  let date =
+    today.getFullYear() +
+    "-" +
+    (today.getMonth() + 1).toString().padStart(2, "0") +
+    "-" +
+    today.getDate();
+
   $.ajax({
     method: "GET",
-    url: "http://localhost:3000/events?_sort=date&_limit=8",
+    url: `http://localhost:3000/events?_sort=date&date_gte=${date}&_limit=8`,
     success: showSlider,
   });
 });

@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 body {
   background-image: url("./img/background.jpg");
   background-size: cover;
@@ -23,8 +30,16 @@ header {
   background-color: transparent;
   margin-left: 5px;
 
+  display: -webkit-box;
+
+  display: -ms-flexbox;
+
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   padding-top: 10px;
   padding-right: 5%;
@@ -40,6 +55,8 @@ header {
 }
 .main-bar .logo a:hover {
   text-decoration: none;
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
   transform: scale(1.1);
 }
 .logo span sub {
@@ -54,18 +71,33 @@ header {
 .nav-bar i:focus {
   text-decoration: none;
   cursor: pointer;
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
   transform: scale(1.1);
 }
 .nav-bar .name-search {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin-right: 10px;
 }
 .search-bar {
   background-color: #555b6e;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   padding-right: 5%;
   padding-left: 5%;
@@ -73,7 +105,11 @@ header {
   padding-bottom: 2px;
 }
 .search-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -87,12 +123,20 @@ header {
 .search-bar .totsearch:focus {
   text-decoration: none;
   cursor: pointer;
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
   transform: scale(1.1);
 }
 
 .nav-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
   justify-content: flex-end;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -108,6 +152,10 @@ button.btnn {
   position: relative;
   overflow: hidden;
   z-index: 1;
+  -webkit-transition: color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  -o-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out;
 }
@@ -133,6 +181,8 @@ button.btnn {
   background-color: #9ba2ff;
 
   letter-spacing: 0.2rem;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
   transition: all 0.3s;
   border-radius: 0.35rem;
   z-index: -1;
@@ -148,6 +198,7 @@ button .btn:focus,
 button .btn:active {
   border: none !important;
   outline: none !important;
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 #myModal {
@@ -203,7 +254,12 @@ main {
 }
 /*Styling Selectbox*/
 .select-forms {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
 }
 .dropdown {
@@ -211,7 +267,10 @@ main {
   display: inline-block;
   background-color: #fff;
   border-radius: 5px;
+  -webkit-box-shadow: 0 0 2px rgb(204, 204, 204);
   box-shadow: 0 0 2px rgb(204, 204, 204);
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
   position: relative;
   font-size: 1rem;
@@ -233,11 +292,14 @@ main {
   font-size: 1rem;
   color: #888;
   cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   float: right;
   line-height: 1.1;
 }
 .dropdown:hover {
+  -webkit-box-shadow: 0 0 4px rgb(204, 204, 204);
   box-shadow: 0 0 4px rgb(204, 204, 204);
 }
 .dropdown:active {
@@ -245,11 +307,14 @@ main {
 }
 .dropdown.active:hover,
 .dropdown.active {
+  -webkit-box-shadow: 0 0 4px rgb(204, 204, 204);
   box-shadow: 0 0 4px rgb(204, 204, 204);
   border-radius: 5px 5px 0 0;
   background-color: #f8f8f8;
 }
 .dropdown.active .select > i {
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
   transform: rotate(-90deg);
 }
 .dropdown .dropdown-menu {
@@ -258,6 +323,7 @@ main {
   width: 100%;
   left: 0;
   margin-top: 1px;
+  -webkit-box-shadow: 0 1px 2px rgb(204, 204, 204);
   box-shadow: 0 1px 2px rgb(204, 204, 204);
   border-radius: 0 1px 2px 2px;
   overflow: hidden;
@@ -268,6 +334,8 @@ main {
 }
 .dropdown .dropdown-menu li {
   padding: 10px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
 }
@@ -283,7 +351,12 @@ main {
 }
 /* datepicker */
 .date-forms {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
 }
 .date {
@@ -307,11 +380,13 @@ main {
 }
 /* slider */
 html {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 *,
 *:before,
 *:after {
+  -webkit-box-sizing: inherit;
   box-sizing: inherit;
 }
 
@@ -371,9 +446,18 @@ div .slider-item {
   padding-right: 5px;
   padding-left: 10px;
   padding-bottom: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
   justify-content: flex-end;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 .slider-item .event-details p {
@@ -381,7 +465,11 @@ div .slider-item {
   font-weight: 300;
 }
 .btnn-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
   justify-content: flex-end;
 }
 .slider-item h3 {
@@ -418,9 +506,17 @@ div .slider-item {
   text-shadow: 4px 1px 8px #070302;
   font-size: 4rem;
   font-weight: 700;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -ms-flex-pack: distribute;
   justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   padding-left: 5%;
   padding-right: 5%;
@@ -461,14 +557,11 @@ div .slider-item {
   height: 50px;
   display: block;
   text-decoration: none;
-  -webkit-border-radius: 35px;
-  -moz-border-radius: 35px;
   border-radius: 35px;
   display: none;
   -webkit-transition: all 0.3s linear;
-  -moz-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 #return-to-top i {
@@ -479,8 +572,6 @@ div .slider-item {
   top: 13px;
   font-size: 19px;
   -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
@@ -495,6 +586,7 @@ div .slider-item {
 #events-container img {
   width: 300px;
   height: 180px;
+  -o-object-fit: cover;
   object-fit: cover;
   float: left;
   margin-right: 15px;
@@ -504,8 +596,15 @@ div .slider-item {
   color: white;
 }
 #events-container .event-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 #events-container li {
@@ -538,8 +637,15 @@ div .slider-item {
   border-top: 3px double #9ba2ff;
 }
 .event-full .details-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
   margin-bottom: 15px;
 }
@@ -563,8 +669,14 @@ div .slider-item {
   padding-right: 5%;
   padding-left: 5%;
   padding-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 .footer-content .logo span {
@@ -573,8 +685,15 @@ div .slider-item {
 .contact-info {
   color: white;
   font-size: 1.1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
 }
 .contact-info p {
@@ -645,7 +764,12 @@ div .slider-item {
     display: none;
   }
   .event-full .details-section {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
   }
 }
@@ -667,7 +791,12 @@ div .slider-item {
     margin-right: 15px;
   }
   .search-bar {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
   }
   .select-forms {
@@ -676,7 +805,11 @@ div .slider-item {
   }
   .date-forms {
     margin-bottom: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
   }
   .dropdown {
@@ -698,9 +831,17 @@ div .slider-item {
     width: 100%;
   }
   .footer-content .menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
     align-items: flex-start;
+    -ms-flex-pack: distribute;
     justify-content: space-around;
   }
 }
